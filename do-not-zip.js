@@ -38,10 +38,10 @@ export default files => {
 		fileData.push(0x50, 0x4B, 0x03, 0x04, ...commonHeader, ...strToBytes(path), ...strToBytes(data));
 	}
 	const bytes = [...fileData, ...centralDirectory, 0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, ...intToBytes(files.length, 2), ...intToBytes(files.length, 2), ...intToBytes(centralDirectory.length, 4), ...intToBytes(fileData.length, 4), 0x00, 0x00];
-	if (typeof Buffer !== 'undefined') {
-		return Buffer.from(bytes);
-	}
 	if (typeof Blob !== 'undefined' && typeof Uint8Array !== 'undefined') {
 		return new Blob([Uint8Array.from(bytes)], { type: 'application/zip' });
+	}
+	if (typeof Buffer !== 'undefined') {
+		return Buffer.from(bytes);
 	}
 };
