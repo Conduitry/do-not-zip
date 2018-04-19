@@ -24,9 +24,21 @@
 	},
 	"homepage": "https://cndtr.io/do-not-zip/",
 	"devDependencies": {
-		"rollup": "*"
+		"browserify": "16.2.0",
+		"jszip": "3.1.5",
+		"rollup": "*",
+		"rollup-plugin-commonjs": "9.1.0",
+		"rollup-plugin-node-resolve": "3.3.0",
+		"tap-colorize": "1.2.0",
+		"tape-run": "4.0.0",
+		"zora": "2.0.1"
 	},
 	"scripts": {
-		"build": "rollup -c"
-	}
+		"build": "rollup -c",
+		"build:jszip": "browserify -s jszip node_modules/jszip/lib/index.js > test/jszip.js",
+		"test:browser": "npm run build:jszip && rollup -c rollup.config.test.js | tape-run | tap-colorize",
+		"test:node": "node test/test.node.js | tap-colorize",
+		"test": "npm run build && npm run test:node && npm run test:browser"
+	},
+	"dependencies": {}
 }
