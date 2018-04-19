@@ -1,9 +1,5 @@
-// Construct Buffer or Blob of a .zip file in store mode (i.e., no compression)
-
-// thanks to:
-// https://github.com/mrananyan/ZipperJS
-// https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
-// https://stackoverflow.com/a/18639999
+// do-not-zip.js
+// Construct a Buffer or a Blob of a .zip file with no compression, on the server or in the browser
 
 const crcTable = [];
 for (let n = 0; n < 256; n++) {
