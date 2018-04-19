@@ -37,7 +37,7 @@ export default files => {
 	const fileData = [];
 	const centralDirectory = [];
 	for (const { path, data } of files) {
-		const commonHeader = [0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, ...intToBytes(0, 2) /* time */, ...intToBytes(0, 2) /* date */, ...intToBytes(strCRC(data), 4), ...intToBytes(data.length, 4), ...intToBytes(data.length, 4), ...intToBytes(path.length, 2), 0x00, 0x00];
+		const commonHeader = [0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, ...intToBytes(strCRC(data), 4), ...intToBytes(data.length, 4), ...intToBytes(data.length, 4), ...intToBytes(path.length, 2), 0x00, 0x00];
 		centralDirectory.push(0x50, 0x4B, 0x01, 0x02, 0x14, 0x00, ...commonHeader, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, ...intToBytes(fileData.length, 4), ...strToBytes(path));
 		fileData.push(0x50, 0x4B, 0x03, 0x04, ...commonHeader, ...strToBytes(path), ...strToBytes(data));
 	}
