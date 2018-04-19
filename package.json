@@ -1,0 +1,32 @@
+{
+	"name": "do-not-zip",
+	"version": "0.1.0",
+	"description": "Do not zip. Just store.",
+	"keywords": [
+		"browser",
+		"zip",
+		"archive"
+	],
+	"main": "./dist/do-not-zip.cjs.js",
+	"module": "./do-not-zip.js",
+	"files": [
+		"do-not-zip.js",
+		"dist"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Conduitry/do-not-zip.git"
+	},
+	"author": "Conduitry",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Conduitry/do-not-zip/issues"
+	},
+	"homepage": "https://cndtr.io/do-not-zip/",
+	"devDependencies": {
+		"rollup": "*"
+	},
+	"scripts": {
+		"build": "rollup -c"
+	}
+}
