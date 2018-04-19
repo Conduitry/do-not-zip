@@ -38,6 +38,6 @@ export default files => {
 		return Buffer.from(bytes);
 	}
 	if (typeof Blob !== 'undefined' && typeof Uint8Array !== 'undefined') {
-		return new Blob([Uint8Array.from(bytes, { type: 'application/zip' })]);
+		return new Blob([Uint8Array.from(bytes)], { type: 'application/zip' });
 	}
 };
