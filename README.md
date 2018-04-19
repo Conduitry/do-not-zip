@@ -1,5 +1,7 @@
 # do-not-zip
 
+[![npm version](https://img.shields.io/npm/v/do-not-zip.svg?style=flat-square)](https://www.npmjs.com/package/do-not-zip)
+
 Do not zip. Just store.
 
 ## What
@@ -9,7 +11,7 @@ Stick some text files into a zip file. Works on the server (Node.js) and on the 
 ## Usage
 
 ```javascript
-import doNotZip from '.../do-not-zip.js';
+import doNotZip from 'do-not-zip';
 const output = doNotZip([
 	{ path: 'path/to/file1.txt', data: 'Hello' },
 	{ path: 'another/file2.txt', data: 'World' },
