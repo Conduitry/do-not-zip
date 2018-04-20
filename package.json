@@ -7,10 +7,10 @@
 		"zip",
 		"archive"
 	],
-	"main": "./dist/do-not-zip.cjs.js",
-	"module": "./do-not-zip.js",
+	"main": "./dist/index.cjs.js",
+	"module": "./src/index.js",
 	"files": [
-		"do-not-zip.js",
+		"src",
 		"dist"
 	],
 	"repository": {
@@ -39,6 +39,5 @@
 		"test:browser": "npm run build:jszip && rollup -c rollup.config.test.js | tape-run | tap-colorize",
 		"test:node": "node test/test.node.js | tap-colorize",
 		"test": "npm run build && npm run test:node && npm run test:browser"
-	},
-	"dependencies": {}
+	}
 }

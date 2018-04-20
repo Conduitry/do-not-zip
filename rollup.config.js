@@ -1,12 +1,10 @@
 export default {
-	input: './do-not-zip.js',
-	external: name => /^[-a-z]+$/.test(name),
+	input: './src/index.js',
 	output: [
 		{
-			file: './dist/do-not-zip.cjs.js',
+			file: './dist/index.cjs.js',
 			format: 'cjs',
 			sourcemap: true,
-			interop: false,
 		},
 	],
 };
