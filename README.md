@@ -6,15 +6,16 @@ Do not zip. Just store.
 
 ## What
 
-Stick some text files into a zip file. Works on the server (Node.js) and on the client (JavaScript). Requires ES2015+.
+Stick some text files into a zip file. This library is super simple and small because it just stores the files without compressing them, which is often sufficient when all you want to do is let the user download some files generated in the browser. Works on the server (Node.js) and on the client (JavaScript). Requires ES2015+.
 
-## Usage
+## How
 
 ```javascript
 import doNotZip from 'do-not-zip';
 const output = doNotZip([
 	{ path: 'path/to/file1.txt', data: 'Hello' },
 	{ path: 'another/file2.txt', data: 'World' },
+	{ path: 'yet/another/file3.bin', data: [1, 2, 3, 4, 5] },
 ]);
 // => output will be a Buffer on the server and a Blob on the client
 ```
