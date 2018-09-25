@@ -1,3 +1,7 @@
+# v0.1.2
+
+- Support specifying files as arrays of bytes
+
 # v0.1.1
 
 - Prefer outputting as a Blob over a Buffer, as it's possible that Buffer will have been polyfilled in the browser

@@ -1,6 +1,6 @@
 {
 	"name": "do-not-zip",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Do not zip. Just store.",
 	"keywords": [
 		"browser",
@@ -22,7 +22,7 @@
 	"bugs": {
 		"url": "https://github.com/Conduitry/do-not-zip/issues"
 	},
-	"homepage": "https://cndtr.io/do-not-zip/",
+	"homepage": "https://conduitry.io/do-not-zip",
 	"devDependencies": {
 		"browserify": "16.2.0",
 		"jszip": "3.1.5",
