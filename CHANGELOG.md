@@ -1,3 +1,7 @@
+# v0.1.3
+
+- Fix issue when trying to add large files
+
 # v0.1.2
 
 - Support specifying files as arrays of bytes
