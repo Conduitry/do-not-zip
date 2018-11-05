@@ -8,9 +8,8 @@
 		"archive"
 	],
 	"main": "./dist/index.cjs.js",
-	"module": "./src/index.js",
+	"module": "./dist/index.es.js",
 	"files": [
-		"src",
 		"dist"
 	],
 	"repository": {

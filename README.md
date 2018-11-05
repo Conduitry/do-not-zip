@@ -11,13 +11,14 @@ Stick some text files into a zip file. This library is super simple and small be
 ## How
 
 ```javascript
-import doNotZip from 'do-not-zip';
-const output = doNotZip([
+import * as doNotZip from 'do-not-zip';
+const output = doNotZip.toArray([
 	{ path: 'path/to/file1.txt', data: 'Hello' },
 	{ path: 'another/file2.txt', data: 'World' },
 	{ path: 'yet/another/file3.bin', data: [1, 2, 3, 4, 5] },
 ]);
-// => output will be a Buffer on the server and a Blob on the client
+// => output will be an array of bytes
+// use .toBuffer on the server to generate a Buffer, and use .toBlob on the client to generate a Blog
 ```
 
 ## Thanks
