@@ -18,7 +18,8 @@ const output = doNotZip.toArray([
 	{ path: 'yet/another/file3.bin', data: [1, 2, 3, 4, 5] },
 ]);
 // => output will be an array of bytes
-// use .toBuffer on the server to generate a Buffer, and use .toBlob on the client to generate a Blog
+// use .toBuffer on the server to generate a Buffer, and use .toBlob on the client to generate a Blob
+// use .toAuto to generate a Buffer on the server or a Blob on the client
 ```
 
 ## Thanks
