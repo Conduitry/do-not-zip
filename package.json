@@ -23,11 +23,11 @@
 	},
 	"homepage": "https://conduitry.io/do-not-zip",
 	"devDependencies": {
-		"browserify": "16.2.0",
+		"browserify": "16.2.3",
 		"jszip": "3.1.5",
 		"rollup": "*",
-		"rollup-plugin-commonjs": "9.1.0",
-		"rollup-plugin-node-resolve": "3.3.0",
+		"rollup-plugin-commonjs": "9.2.0",
+		"rollup-plugin-node-resolve": "3.4.0",
 		"tap-colorize": "1.2.0",
 		"tape-run": "4.0.0",
 		"zora": "2.0.1"
