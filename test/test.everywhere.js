@@ -3,7 +3,7 @@ const doNotZip = require(`../`)
 const { loadJzip, jzipToEntries, entriesToObject } = require(`./helper.js`)
 
 test(`Creates a zip file that jszip can read`, async t => {
-	const outputBlob = doNotZip([
+	const outputBlob = doNotZip.toAuto([
 		{ path: `path/to/file1.txt`, data: `Hello` },
 		{ path: `another/file2.txt`, data: `World` },
 	])
@@ -15,6 +15,5 @@ test(`Creates a zip file that jszip can read`, async t => {
 
 	const jzipMap = entriesToObject(entries)
 
-	expectedPaths.forEach(expectedPath => expectedPath in jzipMap)
+	expectedPaths.forEach(expectedPath => t.ok(expectedPath in jzipMap))
 })
-
