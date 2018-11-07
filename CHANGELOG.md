@@ -1,3 +1,9 @@
+# v1.0.0
+
+- Rename current (default and only) export to a named `toAuto` export, which creates a `Blob` or `Buffer` as appropriate
+- Add `toArray`, `toBlob`, and `toBuffer` exports to manually specify the output format
+- Git tag is now the built version, for easier direct installation without the npm registry
+
 # v0.1.3
 
 - Fix issue when trying to add large files
