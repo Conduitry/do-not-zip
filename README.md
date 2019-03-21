@@ -12,14 +12,31 @@ Stick some text files into a zip file. This library is super simple and small be
 
 ```javascript
 import * as doNotZip from 'do-not-zip';
-const output = doNotZip.toArray([
+
+// on the server or the client:
+const byteArray = doNotZip.toArray([
+	// each file should have:
+	// - 'path' - a string
+	// - 'data' - a string, or an array of bytes or Uint8Array or Buffer or anything else that gives integers when indexed
 	{ path: 'path/to/file1.txt', data: 'Hello' },
 	{ path: 'another/file2.txt', data: 'World' },
 	{ path: 'yet/another/file3.bin', data: [1, 2, 3, 4, 5] },
+	// ...
 ]);
 // => output will be an array of bytes
-// use .toBuffer on the server to generate a Buffer, and use .toBlob on the client to generate a Blob
-// use .toAuto to generate a Buffer on the server or a Blob on the client
+
+// on the server:
+const buffer = doNotZip.toBuffer([ ... ]);
+// => output will be a Buffer
+
+// on the client:
+const blob = doNotZip.toBlob([ ... ]);
+// => output will be a Blob
+
+// on the server or the client:
+const bufferOrBlob = doNotZip.toAuto([ ... ]);
+// => output will be a Buffer on the server and a Blob on the client
+// (which one to return is determined by whether there is a Blob global defined)
 ```
 
 ## Thanks
@@ -30,6 +47,4 @@ const output = doNotZip.toArray([
 
 ## License
 
-Copyright (c) 2018 Conduitry
-
-- [MIT](LICENSE)
+[MIT](LICENSE)
