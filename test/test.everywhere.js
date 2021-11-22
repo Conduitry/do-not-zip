@@ -3,17 +3,28 @@ const doNotZip = require(`../`)
 const { loadJzip, jzipToEntries, entriesToObject } = require(`./helper.js`)
 
 test(`Creates a zip file that jszip can read`, async t => {
-	const outputBlob = doNotZip.toAuto([
-		{ path: `path/to/file1.txt`, data: `Hello` },
-		{ path: `another/file2.txt`, data: `World` },
-	])
-	const entries = jzipToEntries(await loadJzip(outputBlob))
+    const data = [
+        { path: `path/to/file1.txt`, data: `Hello` },
+        { path: `another/file2.txt`, data: `World` },
+        { path: `cyrillic_text.txt`, data: `абвгде` },
+        { path: `surrogateChar.txt`, data: `\uD800\uDC00` },
+    ];
+	const outputBlob = doNotZip.toAuto(data)
+	const entries = await jzipToEntries(await loadJzip(outputBlob))
 
-	const expectedPaths = [ `path/to/file1.txt`, `another/file2.txt` ]
-
-	t.equal(entries.length, expectedPaths.length)
+	t.equal(entries.length, data.length)
 
 	const jzipMap = entriesToObject(entries)
 
-	expectedPaths.forEach(expectedPath => t.ok(expectedPath in jzipMap))
+    t.test(`All the files presented in the archive`, t => {
+        data.forEach(({ path, data }) => {
+            t.ok(path in jzipMap);
+        })
+    })
+
+    t.test(`All the contents are the same`, t => {
+        data.forEach(({ path, data }) => {
+            t.equal(data, jzipMap[path]);
+        })
+    })
 })
