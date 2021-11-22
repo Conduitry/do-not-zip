@@ -9,7 +9,7 @@ const int = (n, length) => {
 	return out;
 };
 
-const toBytes = data => typeof data === 'string' ? [...data].map(char => char.charCodeAt(0)) : data;
+const toBytes = data => typeof data === 'string' ? new TextEncoder().encode(data) : data;
 
 export default files => {
 	let fileData = [];
